@@ -280,12 +280,12 @@ img {
 }
 
 .icon-box {
-  display: inline-block;
-  margin-right: 0px;
+  display: flex;
   width: 270px;
   height: 120px;
 
-  padding: 25px 100px;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 30px;
 
   background: #f5f4fa;
@@ -369,7 +369,11 @@ img {
   margin-left: auto;
 }
 
-.social-box .list .item {
+.social-box .list .item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.social-link {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -380,28 +384,17 @@ img {
   border-radius: 50%;
 }
 
-.social-box .list .item:not(:last-child) {
-  margin-right: 10px;
+.social-link:hover,
+.social-link:focus {
+  background-color: var(--accent-color);
 }
 
-.social-link {
-  display: flex;
-}
-
-.social-box .item:hover .social-icon {
+.social-link:hover,
+.social-link:focus .social-icon {
   fill: var(--main-color-white);
 }
 
-.social-box .item:hover {
-  cursor: pointer;
-  background-color: var(--accent-color);
-}
-
-.social-box .item:focus-within {
-  background-color: var(--accent-color);
-}
-
-.social-box .item:focus-within .social-icon {
+.social-link:hover .social-icon {
   fill: var(--main-color-white);
 }
 
@@ -413,44 +406,39 @@ img {
   justify-content: space-between;
 }
 
-.clients-list .item {
+.clients-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 170px;
   height: 92px;
   border: 1px solid rgba(175, 177, 184, 1);
   border-radius: 4px;
-
-  cursor: pointer;
-
-  margin-right: 30px;
-
-  padding-left: 32px;
-  padding-right: 32px;
-  padding-top: 16px;
-  padding-bottom: 16px;
-}
-
-.clients-list .item:last-child {
-  margin-right: 0px;
 }
 
 .clients-icon {
   fill: #afb1b8;
 }
 
-.clients-list .item:hover,
-.clients-list .item:focus-within {
+.clients-link:hover,
+.clients-link:focus {
   border-color: var(--accent-color);
 }
 
-.clients-list .item:hover .clients-icon {
-  fill: var(--accent-color);
-}
-
+.clients-link:hover,
 .clients-link:focus .clients-icon {
   fill: var(--accent-color);
 }
 
+.clients-link:hover .clients-icon {
+  fill: var(--accent-color);
+}
+
 /* Оформлення футера */
+
+.footer.frame .conteiner {
+  display: flex;
+}
 
 .frame {
   padding-top: 60px;
@@ -495,9 +483,6 @@ img {
 
 .post-address {
   text-decoration: none;
-}
-
-.post-address:visited {
   color: var(--main-color-white);
 }
 
@@ -511,11 +496,9 @@ img {
 /* Оформлення соціальних мереж */
 
 .social {
-  display: flex;
-  flex-wrap: wrap;
   width: 206px;
   height: 80px;
-  margin-top: 12px;
+  margin-top: 15px;
 }
 
 .social-title {
@@ -528,17 +511,14 @@ img {
 
 .join {
   display: flex;
-}
-
-.footer.frame .conteiner {
-  display: flex;
+  justify-content: space-between;
 }
 
 .footer-address {
   margin-right: 70px;
 }
 
-.join .item {
+.join-link {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -549,13 +529,8 @@ img {
   border-radius: 50%;
 }
 
-.join .item.item:not(:last-child) {
-  margin-right: 10px;
-}
-
-.join .item:hover,
-.join .item:focus-within {
-  cursor: pointer;
+.join-link:hover,
+.join-link:focus {
   background-color: var(--accent-color);
 }
 
@@ -566,10 +541,6 @@ img {
 
 .join-link .social-icon {
   fill: var(--main-color-white);
-}
-
-.join-link {
-  display: inline-flex;
 }
 
 /* Оформлення portfolio-main */
@@ -642,8 +613,14 @@ img {
   margin-right: 30px;
 }
 
-.portfolio-card:hover,
-.portfolio-card:focus {
+.portfolio-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.portfolio-link:hover,
+.portfolio-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
